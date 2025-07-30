@@ -7,7 +7,7 @@ module.exports = withBundleAnalyzer({
   swcMinify: false,
 
   images: {
-    domains: ["localhost", "multistoreapi.tjaara.sa", "woshwo.ejjadh.info"],
+    domains: ["localhost"],
   },
 
   i18n: {
