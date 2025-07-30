@@ -25,7 +25,6 @@ import Aos from "aos";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const { locale, defaultLocale } = useRouter();
-  const { settings } = useSelector((state) => state.settings);
 
   const dir = locale === "ar" ? "rtl" : "ltr";
   const messages = languages[locale];
@@ -81,9 +80,12 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>{settings?.appName?.[locale]} </title>
-        <link rel="shortcut icon" href={settings?.favIcon} />
-        <meta name="description" content={settings?.appDesc?.[locale]} />
+        <title> ووشو </title>
+        <link rel="shortcut icon" href="/images/favicon.png" />
+        <meta
+          name="description"
+          content="Woosho is an online platform for selling and buying services "
+        />
       </Head>
       {Progress && <TopBarProgress />}
       <SSRProvider>
