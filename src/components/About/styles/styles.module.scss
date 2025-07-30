@@ -1,0 +1,100 @@
+@import "@/styles/variables.scss";
+.about {
+  :global {
+    .about-wrapper {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding-top: 80px;
+      .gift-1 {
+        position: absolute;
+      }
+      .gift-1 {
+        right: 0;
+        top: 30px;
+        svg {
+          width: 70px;
+          height: 70px;
+        }
+      }
+
+      .about-content {
+        .row {
+          align-items: center;
+          justify-content: space-between;
+          @media (max-width: 768px) {
+            flex-direction: column-reverse;
+
+            text-align: center;
+          }
+        }
+
+        .character-img {
+          max-width: 400px;
+          height: 400px;
+          margin: 0 auto;
+          z-index: 1;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          &:hover {
+            .cloud-wrapper {
+              opacity: 1;
+            }
+          }
+          .cloud-wrapper {
+            position: absolute;
+            top: 10%;
+            right: -150%;
+            z-index: 999;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            .character-info {
+              text-align: center;
+              .name {
+                color: $blue-color;
+                font-weight: 700;
+                font-size: 20px;
+                margin-bottom: 5px;
+              }
+              .role {
+                color: $orange-color;
+                font-weight: 700;
+                font-size: 16px;
+                margin-bottom: 5px;
+              }
+              .characterDescription {
+                color: #313131;
+                font-weight: 400;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        .text {
+          h3 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #37e0d5;
+            [data-theme="dark"] & {
+              color: $white-color;
+            }
+          }
+          p {
+            font-weight: 600;
+            font-size: 20px;
+            color: $blue-color;
+            [data-theme="dark"] & {
+              color: $white-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

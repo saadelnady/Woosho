@@ -1,0 +1,131 @@
+@import "@/styles/variables.scss";
+
+.download {
+  :global {
+    .download-wrapper {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      min-height: 600px;
+      padding-top: 150px;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.2;
+        transform: blur(4px);
+      }
+      .gift-1 {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        svg {
+          width: 160px;
+          height: 160px;
+        }
+      }
+
+      .download-content {
+        padding-bottom: 50px;
+        .row {
+          align-items: center;
+          justify-content: space-between;
+          @media (max-width: 768px) {
+            flex-direction: column-reverse;
+            text-align: center;
+          }
+        }
+
+        .character-img {
+          max-width: 400px;
+          height: 400px;
+          margin: auto;
+          z-index: 1;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          &:hover {
+            .cloud-wrapper {
+              opacity: 1;
+            }
+          }
+          .cloud-wrapper {
+            position: absolute;
+            top: 10%;
+            right: -150%;
+            z-index: 999;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.5s ease;
+            .character-info {
+              text-align: center;
+              .name {
+                color: $blue-color;
+                font-weight: 700;
+                font-size: 20px;
+                margin-bottom: 5px;
+              }
+              .role {
+                color: $orange-color;
+                font-weight: 700;
+                font-size: 16px;
+                margin-bottom: 5px;
+              }
+              .characterDescription {
+                color: #313131;
+                font-weight: 400;
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        .text {
+          h3 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #37e0d5;
+            [data-theme="dark"] & {
+              color: $white-color;
+            }
+          }
+          p {
+            font-weight: 600;
+            font-size: 24px;
+            color: #000;
+            line-height: 50px;
+            [data-theme="dark"] & {
+              color: $white-color;
+            }
+          }
+          .download-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            @media screen and (width < 768px) {
+              justify-content: center;
+            }
+            a {
+              position: relative;
+              width: 150px;
+              aspect-ratio: 180 / 63;
+              display: block;
+            }
+            @media screen and (width < 768px) {
+              a {
+                width: 130px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

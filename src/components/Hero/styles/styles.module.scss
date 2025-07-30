@@ -1,0 +1,164 @@
+@import "@/styles/variables.scss";
+.hero {
+  :global {
+    background-image: url("../assets/images/bg-hero-light.png");
+    [data-theme="dark"] & {
+      // background-image: url("../assets/images/bg-hero-dark.gif");
+      background-color: transparent;
+      background-image: none;
+    }
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    .inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 100vh;
+      .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        .icon-container {
+          border-radius: 50%;
+
+          box-shadow: 0 0 40px 10px rgba(255, 200, 0, 0.7) inset,
+            0 0 80px 20px rgba(255, 200, 0, 0.5),
+            0 0 120px 30px rgba(255, 200, 0, 0.3);
+
+          [data-theme="dark"] & {
+            box-shadow: 0 0 40px 25px rgba(255, 255, 255, 0.15) inset,
+              0 0 80px 40px rgba(255, 255, 255, 0.15),
+              0 0 120px 60px rgba(255, 255, 255, 0.08);
+          }
+          position: relative;
+          border-radius: 50%;
+          svg {
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+      .gift-1,
+      .gift-2 {
+        position: absolute;
+      }
+      .gift-1 {
+        left: 0;
+        bottom: 30px;
+        svg {
+          width: 129px;
+          height: 138px;
+        }
+      }
+      .gift-2 {
+        width: 162px;
+        height: 173px;
+        right: 100px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .cloud1,
+      .cloud2 {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+      }
+      .cloud1 {
+        left: 0;
+        top: 35%;
+      }
+      .cloud2 {
+        left: 50%;
+        top: 50%;
+      }
+      .hero-content {
+        margin-top: 100px;
+        width: 100%;
+        height: 100%;
+        [data-theme="dark"] & {
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            z-index: 1;
+            background-color: rgba(2, 2, 2, 0.2);
+          }
+        }
+
+        .inner {
+          display: flex;
+          flex-direction: column;
+          .character-img {
+            max-width: 420px;
+            height: 420px;
+            z-index: 1;
+            position: relative;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+            &:hover {
+              .cloud-wrapper {
+                opacity: 1;
+              }
+            }
+            .cloud-wrapper {
+              position: absolute;
+              top: 15%;
+              right: -150%;
+              z-index: 999;
+              transform: translate(-50%, -50%);
+              opacity: 0;
+              transition: all 0.5s ease;
+              .character-info {
+                text-align: center;
+                .name {
+                  color: $blue-color;
+                  font-weight: 700;
+                  font-size: 20px;
+                  margin-bottom: 5px;
+                }
+                .role {
+                  color: $orange-color;
+                  font-weight: 700;
+                  font-size: 16px;
+                  margin-bottom: 5px;
+                }
+                .characterDescription {
+                  color: #313131;
+                  font-weight: 400;
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+        }
+        .text {
+          position: relative;
+          z-index: 1;
+          margin-top: 40px;
+          h1 {
+            max-width: 70%;
+            margin: auto;
+            font-size: 38px;
+            font-weight: 700;
+            text-align: center;
+            color: $blue-color;
+            [data-theme="dark"] & {
+              color: $white-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

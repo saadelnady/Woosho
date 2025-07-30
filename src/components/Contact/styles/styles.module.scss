@@ -1,0 +1,146 @@
+@import "@/styles/variables.scss";
+
+.contact {
+  :global {
+    .container {
+      position: relative;
+      @media screen and (width < 768px) {
+        padding-inline: 0px;
+      }
+    }
+    .error {
+      margin-top: 10px;
+      font-size: 15px;
+      color: red;
+    }
+
+    .woshwo {
+      position: absolute;
+      inset: 50px -110px auto auto;
+      z-index: 10;
+      img {
+        object-fit: contain;
+        aspect-ratio: 200/335;
+      }
+      @media screen and (width < 1400px) {
+        inset: 50px -50px auto auto;
+
+        img {
+          width: 160px !important;
+        }
+      }
+      @media screen and (width < 1200px) {
+        inset: 50px -40px auto auto;
+
+        img {
+          width: 140px !important;
+        }
+      }
+      @media screen and (width < 992px) {
+        inset: 50px -30px auto auto;
+
+        img {
+          width: 120px !important;
+        }
+      }
+      @media screen and (width < 576px) {
+        inset: -14px 0px auto auto;
+        img {
+          width: 80px !important;
+        }
+      }
+    }
+    .contact-body {
+      background-color: #fff;
+      border-radius: 90px;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 70px 120px;
+      box-shadow: 0px 50px 123px rgba(0, 0, 0, 0.02),
+        0px 50px 39.1778px rgba(0, 0, 0, 0.0121481),
+        0px 10px 10.0222px rgba(0, 0, 0, 0.00785185);
+      @media screen and (width < 992px) {
+        padding: 60px 80px;
+        border-radius: 60px;
+      }
+      @media screen and (width < 576px) {
+        padding: 40px;
+      }
+      [data-theme="dark"] & {
+        background-color: #ffffff0d;
+      }
+      input {
+        font-size: 16px;
+        width: 100%;
+        margin: auto;
+        border: none;
+        background-color: #8484840d;
+        border-radius: 15px;
+        padding: 20px 30px;
+        color: $blue-color;
+        &::placeholder {
+          color: $blue-color;
+        }
+        [data-theme="dark"] & {
+          background-color: #d9d9d90d;
+          color: $text-color-2;
+          &::placeholder {
+            color: $text-color-2;
+          }
+        }
+        @media screen and (width < 768px) {
+          border-radius: 10px;
+          padding: 15px 25px;
+        }
+      }
+      .form-row {
+        row-gap: 30px;
+        @media screen and (width < 768px) {
+          row-gap: 20px;
+        }
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 70px;
+        color: $text-color;
+        font-weight: 600;
+        [data-theme="dark"] & {
+          color: $text-color-2;
+        }
+        @media screen and (width < 992px) {
+          margin-bottom: 60px;
+          max-width: 70%;
+        }
+        @media screen and (width < 768px) {
+          margin-bottom: 40px;
+        }
+      }
+      button {
+        background-color: $blue-color;
+        width: 325px;
+        margin-inline: auto;
+        margin-top: 30px;
+        font-size: 16px;
+        color: #c4deec;
+        border-radius: 15px;
+        padding: 15px 0;
+        border: none;
+        @media screen and (width < 992px) {
+          width: 250px;
+        }
+        @media screen and (width < 768px) {
+          width: 200px;
+          padding: 12px;
+          border-radius: 10px;
+        }
+        [data-theme="dark"] & {
+          background-color: #ffffff0d;
+        }
+      }
+    }
+  }
+}
