@@ -9,8 +9,7 @@
       "@/api/*": ["src/api/*"],
       "@/assets/*": ["src/assets/*"],
       "@/components/*": ["src/components/*"],
-      "@/content/*": ["src/content/*"],
-      "@/pages/*": ["src/pages/*"]
+      "@/content/*": ["src/content/*"]
     }
   },
   "include": ["src"]
