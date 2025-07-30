@@ -19,7 +19,6 @@ const languages = {
 
 import { wrapper } from "../src/store";
 import { END } from "redux-saga";
-import { useSelector } from "react-redux";
 import Aos from "aos";
 
 function MyApp({ Component, pageProps }) {

@@ -9,10 +9,17 @@ import Footer from "@/components/Footer/Index";
 import { gsap } from "gsap";
 import styles from "./styles/styles.module.scss";
 import DesktopPath from "./DesktopPath";
-// import IcBallLight from "./LightBall.js";
+import LightBall from "./LightBall.js";
+import DarkBall from "./DarkBall.js";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import { useSelector } from "react-redux";
+import Gift from "./assets/images/gift.png";
+import Image from "next/future/image";
+gsap.registerPlugin(MotionPathPlugin);
+
 const Index = () => {
   const bannerRef = useRef(null);
-
+  const { theme } = useSelector((state) => state.theme);
   useEffect(() => {
     const banner = bannerRef.current;
     const numberOfStars = 300;
@@ -45,21 +52,94 @@ const Index = () => {
     });
   }, []);
   const pathRef = useRef();
+  const ballRef = useRef();
+  const giftRef = useRef();
+  const giftRef2 = useRef();
+
+  // useEffect(() => {
+  //   gsap.to(pathRef.current, {
+  //     strokeDashoffset: -64,
+  //     duration: 1.5,
+  //     repeat: -1,
+  //     ease: "none",
+  //   });
+  // }, []);
 
   useEffect(() => {
+    // حركة الخط نفسه
     gsap.to(pathRef.current, {
       strokeDashoffset: -64,
       duration: 1.5,
       repeat: -1,
       ease: "none",
     });
-  }, []);
+
+    // حركة الكرة على المسار
+    gsap.to(ballRef.current, {
+      motionPath: {
+        path: pathRef.current,
+        align: pathRef.current,
+        alignOrigin: [0.5, 0.5],
+        autoRotate: false,
+      },
+      duration: 40,
+      repeat: -1,
+      ease: "none",
+    });
+
+    // حركة الهدية على نفس المسار
+    gsap.to(giftRef.current, {
+      motionPath: {
+        path: pathRef.current,
+        align: pathRef.current,
+        alignOrigin: [0.5, 0.5],
+        autoRotate: false,
+      },
+      duration: 50,
+      repeat: -1,
+      ease: "none",
+    });
+    gsap.to(giftRef2.current, {
+      motionPath: {
+        path: pathRef.current,
+        align: pathRef.current,
+        alignOrigin: [0.5, 0.5],
+        autoRotate: false,
+      },
+      duration: 150,
+      repeat: -1,
+      ease: "none",
+    });
+  }, [theme, pathRef, ballRef, giftRef]);
 
   return (
     <div className={styles.home}>
       <div className="stars" ref={bannerRef}></div>
       <div className="desktopPath">
         <DesktopPath ref={pathRef} />
+        {theme === "dark" ? (
+          <DarkBall ref={ballRef} />
+        ) : (
+          <LightBall ref={ballRef} />
+        )}
+        <div className="ic-gift" ref={giftRef}>
+          <Image
+            src={Gift.src}
+            alt="Gift"
+            layout="fill"
+            width={1920}
+            height={1080}
+          />
+        </div>
+        <div className="ic-gift2" ref={giftRef2}>
+          <Image
+            src={Gift.src}
+            alt="Gift"
+            layout="fill"
+            width={1920}
+            height={1080}
+          />
+        </div>
       </div>
 
       <Hero />

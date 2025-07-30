@@ -2,6 +2,8 @@
 
 .home {
   :global {
+    width: 100%;
+    height: 100%;
     background-color: $background-light;
     position: relative;
     [data-theme="dark"] & {
@@ -12,7 +14,7 @@
     }
     .desktopPath {
       position: absolute;
-      width: 80%;
+      width: 100% !important;
       height: 42%;
       right: 50%;
       transform: translatex(50%);
@@ -21,6 +23,26 @@
       svg {
         height: 100%;
         width: 100%;
+      }
+      .ic-ball {
+        width: 50px;
+        height: 50px;
+      }
+      .ic-gift {
+        width: 120px;
+        height: 120px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .ic-gift2 {
+        width: 80px;
+        height: 80px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
     .stars {
