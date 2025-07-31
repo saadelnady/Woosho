@@ -6,7 +6,7 @@ import { Toaster } from "react-hot-toast";
 import TopBarProgress from "react-topbar-progress-indicator";
 import SSRProvider from "react-bootstrap/SSRProvider";
 import Header from "@/components/Header";
-import FavIcon from "../public/images/favIcon.ico";
+import FavIcon from "/public/favIcon.ico";
 // Main app Styles
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.rtl.min.css";
