@@ -80,7 +80,12 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title> ووشو </title>
-        <link rel="shortcut icon" href="../public/images/favIcon.png" />
+        <link
+          rel="shortcut icon"
+          href="../public/images/favIcon.png"
+          type="image/png"
+        />
+
         <link rel="icon" href="../public/images/favIcon.png" />
 
         <meta
