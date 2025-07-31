@@ -45,6 +45,13 @@
           right: 49%;
         }
       }
+      @media (max-width: 400px) {
+        & {
+          height: 38%;
+          top: 8%;
+          right: 49%;
+        }
+      }
       .icDesktopPath {
         height: 100%;
         width: 100%;
