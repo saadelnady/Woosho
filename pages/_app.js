@@ -80,7 +80,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title> ووشو </title>
-        <link rel="shortcut icon" href="/images/favicon.png" />
+        <link rel="shortcut icon" href="../public/images/favIcon.png" />
+        <link rel="icon" href="../public/images/favIcon.png" />
+
         <meta
           name="description"
           content="Woosho is an online platform for selling and buying services "
