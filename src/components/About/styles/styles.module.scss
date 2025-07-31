@@ -5,7 +5,17 @@
       display: flex;
       justify-content: center;
       position: relative;
-      padding-top: 80px;
+      // padding-top: 80px;
+      @media (max-width: 992px) {
+        & {
+          padding-top: 50px;
+        }
+      }
+      @media (max-width: 768px) {
+        & {
+          padding-top: 0px;
+        }
+      }
       .gift-1 {
         position: absolute;
       }
@@ -19,6 +29,9 @@
       }
 
       .about-content {
+        @media (max-width: 768px) {
+          padding-inline-end: 60px;
+        }
         .row {
           align-items: center;
           justify-content: space-between;
@@ -31,7 +44,10 @@
 
         .character-img {
           max-width: 400px;
-          height: 400px;
+          min-height: 400px;
+          @media (max-width: 768px) {
+            height: 250px;
+          }
           margin: 0 auto;
           z-index: 1;
           position: relative;
@@ -55,10 +71,15 @@
             transition: all 0.5s ease;
             .character-info {
               text-align: center;
+              z-index: 1;
+              position: relative;
               .name {
                 color: $blue-color;
                 font-weight: 700;
                 font-size: 20px;
+                @media (max-width: 992px) {
+                  font-size: 16px;
+                }
                 margin-bottom: 5px;
               }
               .role {
@@ -73,6 +94,16 @@
                 font-size: 16px;
               }
             }
+            @media (max-width: 992px) {
+              & {
+                top: 0%;
+                right: -55%;
+                svg {
+                  width: 350px;
+                  height: 350px;
+                }
+              }
+            }
           }
         }
         .text {
@@ -84,10 +115,16 @@
             [data-theme="dark"] & {
               color: $white-color;
             }
+            @media (max-width: 768px) {
+              font-size: 25px;
+            }
           }
           p {
             font-weight: 600;
             font-size: 20px;
+            @media (max-width: 768px) {
+              font-size: 16px;
+            }
             color: $blue-color;
             [data-theme="dark"] & {
               color: $white-color;

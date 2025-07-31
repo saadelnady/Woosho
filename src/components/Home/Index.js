@@ -15,6 +15,7 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useSelector } from "react-redux";
 import Gift from "./assets/images/gift.png";
 import Image from "next/future/image";
+import MobilePath from "./MobilePath";
 gsap.registerPlugin(MotionPathPlugin);
 
 const Index = () => {
@@ -51,7 +52,8 @@ const Index = () => {
       });
     });
   }, []);
-  const pathRef = useRef();
+  const DesktopPathRef = useRef();
+  const MobilePathRef = useRef();
   const ballRef = useRef();
   const giftRef = useRef();
   const giftRef2 = useRef();
@@ -66,8 +68,11 @@ const Index = () => {
   // }, []);
 
   useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 769px)").matches;
+    const path = isDesktop ? DesktopPathRef.current : MobilePathRef.current;
+
     // حركة الخط نفسه
-    gsap.to(pathRef.current, {
+    gsap.to(path, {
       strokeDashoffset: -64,
       duration: 1.5,
       repeat: -1,
@@ -77,46 +82,52 @@ const Index = () => {
     // حركة الكرة على المسار
     gsap.to(ballRef.current, {
       motionPath: {
-        path: pathRef.current,
-        align: pathRef.current,
+        path,
+        align: path,
         alignOrigin: [0.5, 0.5],
         autoRotate: false,
       },
       duration: 40,
       repeat: -1,
       ease: "none",
+      delay: 3,
     });
 
-    // حركة الهدية على نفس المسار
+    // حركة الهدية الأولى
     gsap.to(giftRef.current, {
       motionPath: {
-        path: pathRef.current,
-        align: pathRef.current,
+        path,
+        align: path,
         alignOrigin: [0.5, 0.5],
         autoRotate: false,
       },
       duration: 50,
       repeat: -1,
       ease: "none",
+      delay: 5,
     });
+
+    // حركة الهدية الثانية
     gsap.to(giftRef2.current, {
       motionPath: {
-        path: pathRef.current,
-        align: pathRef.current,
+        path,
+        align: path,
         alignOrigin: [0.5, 0.5],
         autoRotate: false,
       },
-      duration: 150,
+      duration: 100,
       repeat: -1,
       ease: "none",
+      delay: 10,
     });
-  }, [theme, pathRef, ballRef, giftRef]);
+  }, [theme]);
 
   return (
     <div className={styles.home}>
       <div className="stars" ref={bannerRef}></div>
-      <div className="desktopPath">
-        <DesktopPath ref={pathRef} />
+      <div className="pathWrapper">
+        <DesktopPath ref={DesktopPathRef} />
+        <MobilePath ref={MobilePathRef} />
         {theme === "dark" ? (
           <DarkBall ref={ballRef} />
         ) : (

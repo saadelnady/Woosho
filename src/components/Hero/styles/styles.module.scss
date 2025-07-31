@@ -10,12 +10,20 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+
     .inner {
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
+      width: 100%;
+      height: 100%;
       min-height: 100vh;
+      // @media (max-width: 768px) {
+      //   min-height: 70vh;
+      // }
       .wrapper {
         position: absolute;
         top: 0;
@@ -77,6 +85,9 @@
       }
       .hero-content {
         margin-top: 100px;
+        @media (max-width: 768px) {
+          margin-top: 150px;
+        }
         width: 100%;
         height: 100%;
         [data-theme="dark"] & {
@@ -87,7 +98,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 10;
             z-index: 1;
             background-color: rgba(2, 2, 2, 0.2);
           }
@@ -98,7 +108,14 @@
           flex-direction: column;
           .character-img {
             max-width: 420px;
-            height: 420px;
+            min-height: 400px;
+            height: 100%;
+            @media (max-width: 768px) {
+              & {
+                max-width: 400px;
+                min-height: 200px;
+              }
+            }
             z-index: 1;
             position: relative;
             img {
@@ -139,6 +156,16 @@
                   font-size: 16px;
                 }
               }
+              @media (max-width: 992px) {
+                & {
+                  top: -20%;
+                  right: -75%;
+                  svg {
+                    width: 350px;
+                    height: 350px;
+                  }
+                }
+              }
             }
           }
         }
@@ -153,6 +180,10 @@
             font-weight: 700;
             text-align: center;
             color: $blue-color;
+            @media (max-width: 992px) {
+              max-width: 85%;
+              font-size: 25px;
+            }
             [data-theme="dark"] & {
               color: $white-color;
             }

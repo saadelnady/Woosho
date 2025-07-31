@@ -14,9 +14,14 @@ import IcCrescent from "./assets/images/ic-crescent.svg";
 import IcSun from "./assets/images/ic-sun.svg";
 import { useDispatch } from "react-redux";
 import { setTheme } from "@/store/actions";
+import MobileSideBar from "./MobileSideBar";
 const Index = () => {
   const { locale } = useRouter();
   const [dataTheme, setDataTheme] = useState("light");
+  const [isSideBarActive, setIsSideBarActive] = useState(false);
+  const handleSideBaActivation = () => {
+    setIsSideBarActive(!isSideBarActive);
+  };
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,7 +43,7 @@ const Index = () => {
     <div className={styles.header}>
       <Container>
         <div className="inner">
-          <div className="burger-icon">
+          <div className="burger-icon" onClick={handleSideBaActivation}>
             <BurgerIcon />
           </div>
           <div className="logo">
@@ -93,6 +98,10 @@ const Index = () => {
           </div>
         </div>
       </Container>
+      <MobileSideBar
+        isSideBarActive={isSideBarActive}
+        handleSideBaActivation={handleSideBaActivation}
+      />
     </div>
   );
 };
