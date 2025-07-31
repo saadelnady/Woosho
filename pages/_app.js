@@ -85,7 +85,7 @@ function MyApp({ Component, pageProps }) {
           href="../public/images/favIcon.png"
           type="image/png"
         />
-
+        <link rel="shortcut icon" href="../public/images/favIcon.ico" />
         <link rel="icon" href="../public/images/favIcon.png" />
 
         <meta
