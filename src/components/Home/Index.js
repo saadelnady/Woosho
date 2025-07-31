@@ -6,12 +6,16 @@ import DownloadApp from "@/components/DownloadApp/Index.js";
 import Contact from "@/components/Contact/Index.js";
 import Terms from "@/components/Conditions/Index.js";
 import Footer from "@/components/Footer/Index";
-import { gsap } from "gsap";
 import styles from "./styles/styles.module.scss";
 import DesktopPath from "./DesktopPath";
 import LightBall from "./LightBall.js";
 import DarkBall from "./DarkBall.js";
+import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(MotionPathPlugin);
+}
 import { useSelector } from "react-redux";
 import Gift from "./assets/images/gift.png";
 import Image from "next/future/image";
@@ -51,7 +55,9 @@ const Index = () => {
       });
     });
   }, []);
-  gsap.registerPlugin(MotionPathPlugin);
+  useEffect(() => {
+    gsap.registerPlugin(MotionPathPlugin);
+  }, []);
 
   const DesktopPathRef = useRef();
   const MobilePathRef = useRef();
