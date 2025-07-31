@@ -11,11 +11,7 @@ import DesktopPath from "./DesktopPath";
 import LightBall from "./LightBall.js";
 import DarkBall from "./DarkBall.js";
 import { gsap } from "gsap";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(MotionPathPlugin);
-}
 import { useSelector } from "react-redux";
 import Gift from "./assets/images/gift.png";
 import Image from "next/future/image";
@@ -25,39 +21,69 @@ const Index = () => {
   const bannerRef = useRef(null);
   const { theme } = useSelector((state) => state.theme);
   useEffect(() => {
-    const banner = bannerRef.current;
-    const numberOfStars = 300;
-    const appearMin = 0.3;
-    const appearMax = 0.8;
+    const isDesktop = window.matchMedia("(min-width: 769px)").matches;
+    const path = isDesktop ? DesktopPathRef.current : MobilePathRef.current;
 
-    const stars = [];
+    // استيراد gsap + MotionPathPlugin ديناميكيًا داخل useEffect
+    const animate = async () => {
+      const { gsap } = await import("gsap");
+      const { MotionPathPlugin } = await import("gsap/MotionPathPlugin");
 
-    for (let i = 0; i < numberOfStars; i++) {
-      const star = document.createElement("div");
-      star.className = "star";
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.top = `${Math.random() * 100}%`;
-      banner.appendChild(star);
-      stars.push(star);
-    }
+      gsap.registerPlugin(MotionPathPlugin);
 
-    stars.forEach((star) => {
-      const delay = Math.random();
-      const duration = appearMin + Math.random() * (appearMax - appearMin);
-      gsap.to(star, {
-        opacity: 1,
-        visibility: "visible",
-        duration,
+      // حركة الخط
+      gsap.to(path, {
+        strokeDashoffset: -64,
+        duration: 1.5,
         repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay,
+        ease: "none",
       });
-    });
-  }, []);
-  useEffect(() => {
-    gsap.registerPlugin(MotionPathPlugin);
-  }, []);
+
+      // الكرة
+      gsap.to(ballRef.current, {
+        motionPath: {
+          path,
+          align: path,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: false,
+        },
+        duration: 40,
+        repeat: -1,
+        ease: "none",
+        delay: 3,
+      });
+
+      // الهدية الأولى
+      gsap.to(giftRef.current, {
+        motionPath: {
+          path,
+          align: path,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: false,
+        },
+        duration: 50,
+        repeat: -1,
+        ease: "none",
+        delay: 5,
+      });
+
+      // الهدية الثانية
+      gsap.to(giftRef2.current, {
+        motionPath: {
+          path,
+          align: path,
+          alignOrigin: [0.5, 0.5],
+          autoRotate: false,
+        },
+        duration: 100,
+        repeat: -1,
+        ease: "none",
+        delay: 10,
+      });
+    };
+
+    animate();
+  }, [theme]);
 
   const DesktopPathRef = useRef();
   const MobilePathRef = useRef();
