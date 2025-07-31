@@ -16,7 +16,6 @@ import { useSelector } from "react-redux";
 import Gift from "./assets/images/gift.png";
 import Image from "next/future/image";
 import MobilePath from "./MobilePath";
-gsap.registerPlugin(MotionPathPlugin);
 
 const Index = () => {
   const bannerRef = useRef(null);
@@ -52,6 +51,8 @@ const Index = () => {
       });
     });
   }, []);
+  gsap.registerPlugin(MotionPathPlugin);
+
   const DesktopPathRef = useRef();
   const MobilePathRef = useRef();
   const ballRef = useRef();
