@@ -48,7 +48,7 @@ const Index = () => {
                   </p>
                 </div>
               </Col>
-              <Col xs={12} md={6}>
+              <Col xs={12} md={5}>
                 <div className="character-img">
                   <Image
                     src={theme === "dark" ? GroofyDark : GroofyLight}

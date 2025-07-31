@@ -25,6 +25,12 @@
           top: 10%;
         }
       }
+      @media (max-width: 1200px) {
+        & {
+          height: 50%;
+          top: 6%;
+        }
+      }
       @media (max-width: 768px) {
         & {
           height: 42%;
@@ -34,8 +40,8 @@
       }
       @media (max-width: 500px) {
         & {
-          height: 42%;
-          top: 9%;
+          height: 45%;
+          top: 7%;
           right: 49%;
         }
       }
