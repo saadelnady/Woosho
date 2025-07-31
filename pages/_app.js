@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import TopBarProgress from "react-topbar-progress-indicator";
 import SSRProvider from "react-bootstrap/SSRProvider";
 import Header from "@/components/Header";
+import FavIcon from "../public/images/favIcon.ico";
 // Main app Styles
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.rtl.min.css";
@@ -85,7 +86,7 @@ function MyApp({ Component, pageProps }) {
           href="../public/images/favIcon.png"
           type="image/png"
         />
-        <link rel="shortcut icon" href="../public/images/favIcon.ico" />
+        <link rel="shortcut icon" href={FavIcon} />
         <link rel="icon" href="../public/images/favIcon.png" />
 
         <meta
