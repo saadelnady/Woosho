@@ -20,6 +20,11 @@
           padding-top: 0px;
         }
       }
+      @media (max-width: 500px) {
+        & {
+          padding-top: 80px;
+        }
+      }
       .gift-1 {
         position: absolute;
       }
